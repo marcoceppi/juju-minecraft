@@ -5,7 +5,7 @@ set -ux
 if [ ! -f "$LOCAL_CFG_FILE" ]; then
 	# Run Minecraft once to extract everything
 	/etc/init.d/minecraft start
-	sleep 60
+	sleep 120
 	/etc/init.d/minecraft stop
 fi
 
