@@ -1,0 +1,4 @@
+name: minecraft
+summary: Minecraft Server install
+description: |
+  Will deploy Sun Java6 JRE and the latest Minecraft server
