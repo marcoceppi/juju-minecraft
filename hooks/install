@@ -1,22 +1,22 @@
 #!/bin/bash
 
 ## https://gist.github.com/1336585
-juju-log "Adding Canonical Partner repository"
-RELEASE_CODE=`lsb_release -sc`
-add-apt-repository "deb http://archive.canonical.com/ ${RELEASE_CODE} partner"
-apt-get update
+#juju-log "Adding Canonical Partner repository"
+#RELEASE_CODE=`lsb_release -sc`
+#add-apt-repository "deb http://archive.canonical.com/ ${RELEASE_CODE} partner"
+#apt-get update
 
-apt-get -y install -qq --no-install-recommends debconf-utils 
+#apt-get -y install -qq --no-install-recommends debconf-utils 
 
-echo "sun-java6-plugin shared/accepted-sun-dlj-v1-1 boolean true" | debconf-set-selections
-DEBIAN_FRONTEND=noninteractive apt-get -y install -qq sun-java6-jdk
-update-java-alternatives --jre -s java-6-sun
+#echo "sun-java6-plugin shared/accepted-sun-dlj-v1-1 boolean true" | debconf-set-selections
+#DEBIAN_FRONTEND=noninteractive apt-get -y install -qq sun-java6-jdk
+#update-java-alternatives --jre -s java-6-sun
 ##
+
+apt-get install -y openjdk-6-jre
 
 cp opt/minecraft /etc/init.d/minecraft && chmod 0755 /etc/init.d/minecraft
 mkdir -p /opt/minecraft/
 wget "https://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar" -O /opt/minecraft/minecraft_server.jar
-
-/etc/init.d/minecraft update
 
 open-port 25565
