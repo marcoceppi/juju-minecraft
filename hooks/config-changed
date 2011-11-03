@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -ux
+
+if [ ! -f "$LOCAL_CFG_FILE" ]; then
+	# Run Minecraft once to extract everything
+	/etc/init.d/minecraft start
+	sleep 60
+	/etc/init.d/minecraft stop
+fi
+
+LOCAL_CFG_FILE="/opt/minecraft/server.properties"
+cd "$CHARM_DIR"
+
+LEVEL=`config-get level-name`
+if [ ! -z "$LEVEL" ]; then
+	sed -i -e "s/^level\-name\=.*/level\-name\=${LEVEL}/" "$LOCAL_CFG_FILE"
+fi
+
+NETHER=`config-get allow-nether`
+if [ ! -z "$NETHER" ]; then
+	sed -i -e "s/^allow\-nether\=.*/allow\-nether\=${NETHER}/" "$LOCAL_CFG_FILE"
+fi
+
+MONSTERS=`config-get spawn-monsters`
+if [ ! -z "$MONSTERS" ]; then
+	sed -i -e "s/^spawn\-monsters\=.*/spawn\-monsters\=${MONSTERS}/" "$LOCAL_CFG_FILE"
+fi
+
+DIFFICULTY=`config-get difficulty`
+if [ ! -z "$LEVEL" ]; then
+	sed -i -e "s/^difficulty\=.*/difficulty\=${DIFFICULTY}/" "$LOCAL_CFG_FILE"
+fi
+
+ANIMALS=`config-get spawn-animals`
+if [ ! -z "$ANIMALS" ]; then
+	sed -i -e "s/^spawn\-animals\=.*/spawn\-animals\=${ANIMALS}/" "$LOCAL_CFG_FILE"
+fi
+
+MOTD=`config-get motd`
+if [ ! -z "$LEVEL" ]; then
+	sed -i -e "s/^motd\=.*/motd\=${MOTD}/" "$LOCAL_CFG_FILE"
+fi
+
+PLAYERS=`config-get max-players`
+if [ ! -z "$PLAYERS" ]; then
+	sed -i -e "s/^max\-players\=.*/max\-players\=${PLAYERS}/" "$LOCAL_CFG_FILE"
+fi
+
