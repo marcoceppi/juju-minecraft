@@ -7,7 +7,7 @@ LOCAL_CFG_FILE="/opt/minecraft/server.properties"
 if [ ! -f "$LOCAL_CFG_FILE" ]; then
 	# Run Minecraft once to extract everything
 	/etc/init.d/minecraft start
-	sleep 120
+	sleep 60
 	/etc/init.d/minecraft stop
 fi
 
@@ -45,4 +45,3 @@ PLAYERS=`config-get max-players`
 if [ ! -z "$PLAYERS" ]; then
 	sed -i -e "s/^max\-players\=.*/max\-players\=${PLAYERS}/" "$LOCAL_CFG_FILE"
 fi
-

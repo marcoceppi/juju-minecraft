@@ -16,9 +16,9 @@ options:
     type: string
     description: Maximum players allowed on the server
   spawn-animals:
-    default: 5
+    default: true
     type: string
-    description: Maximum rounds per map
+    description: Generate animals, true or false
   spawn-monsters:
     default: true
     type: string
