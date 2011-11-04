@@ -2,15 +2,14 @@
 
 set -ux
 
+LOCAL_CFG_FILE="/opt/minecraft/server.properties"
+
 if [ ! -f "$LOCAL_CFG_FILE" ]; then
 	# Run Minecraft once to extract everything
 	/etc/init.d/minecraft start
 	sleep 120
 	/etc/init.d/minecraft stop
 fi
-
-LOCAL_CFG_FILE="/opt/minecraft/server.properties"
-cd "$CHARM_DIR"
 
 LEVEL=`config-get level-name`
 if [ ! -z "$LEVEL" ]; then
