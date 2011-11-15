@@ -13,7 +13,7 @@ options:
     description: Message of the day displayed to users in the server list
   max-players:
     default: 10
-    type: string
+    type: int
     description: Maximum players allowed on the server
   spawn-animals:
     default: true
@@ -25,7 +25,7 @@ options:
     description: Generate monsters, true or false
   difficulty:
     default: 1
-    type: string
+    type: int
     description: Level of complexity 1-5
   port:
     default: 25565
