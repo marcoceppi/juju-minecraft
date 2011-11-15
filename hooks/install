@@ -5,7 +5,7 @@
 juju-log "Installing OpenJDK"
 apt-get install -y openjdk-6-jre
 
-juju-log "Add minecraft init script" 
+juju-log "Add Minecraft init script" 
 cp opt/minecraft /etc/init.d/minecraft && chmod 0755 /etc/init.d/minecraft
 
 juju-log "Downloading Minecraft"
