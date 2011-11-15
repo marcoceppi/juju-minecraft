@@ -45,3 +45,16 @@ PLAYERS=`config-get max-players`
 if [ ! -z "$PLAYERS" ]; then
 	sed -i -e "s/^max\-players\=.*/max\-players\=${PLAYERS}/" "$LOCAL_CFG_FILE"
 fi
+
+PORT=`config-get port`
+if [ ! -z "$PORT" ]; then
+	juju-log "Expose the Minecraft port"
+	open-port $PORT
+	/etc/init.d/minecraft status
+	IS_RUNNING=$?
+	if [ "$IS_RUNNING" -eq 100 ]; then
+		/etc/init.d/minecraft restart
+	else
+		/etc/init.d/minecraft start
+	fi
+fi

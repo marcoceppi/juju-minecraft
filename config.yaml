@@ -27,3 +27,7 @@ options:
     default: 1
     type: string
     description: Level of complexity 1-5
+  port:
+    default: 25565
+    type: int
+    description: Port for which Minecraft runs upon

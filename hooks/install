@@ -17,5 +17,3 @@ juju-log "Setting up initial Minecraft directory structure"
 sleep 60
 /etc/init.d/minecraft stop
 
-juju-log "Expose the Minecraft port"
-open-port 25565
