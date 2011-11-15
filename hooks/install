@@ -12,6 +12,15 @@ juju-log "Downloading Minecraft"
 mkdir -p /opt/minecraft/
 wget "https://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar" -O /opt/minecraft/minecraft_server.jar
 
+juju-log "Branching Minecraft Checksum"
+bzr branch lp:~marcoceppi/charm/oneiric/minecraft/checksum
+
+md5sum -c  checksum/checksums
+if [ "$?" -ne 0 ]; then
+	juju-log "Checksum conditions failed! Exiting"
+	exit 2 #Checksum error number, I just made it up for this.
+fi
+
 juju-log "Setting up initial Minecraft directory structure"
 /etc/init.d/minecraft start
 sleep 60
