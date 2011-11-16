@@ -2,18 +2,3 @@ name: minecraft
 summary: Minecraft Server
 description: |
   Will deploy OpenJDK 6 JRE and the latest Minecraft server
-  
-  Usage:
-   /etc/init.d/minecraft [ACTION]
-   
-   Available Actions:
-   stop
-     - Stop the Minecraft Server
-   restart
-     - Restart Minecraft Server
-   update
-     - Update the Minecraft Server
-   status
-     - Determine the run status of the Minecraft Server
-   backup
-     - Perform a save and archival of the current map

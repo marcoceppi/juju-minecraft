@@ -1,0 +1,17 @@
+Post deployment, the minecraft init script has the following
+options available
+
+Usage:
+ service minecraft [ACTION]
+
+ Available Actions:
+ stop
+   - Stop the Minecraft Server
+ restart
+   - Restart Minecraft Server
+ update
+   - Update the Minecraft Server
+ status
+   - Determine the run status of the Minecraft Server
+ backup
+   - Perform a save and archival of the current map
