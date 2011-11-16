@@ -7,7 +7,8 @@ LOCAL_CFG_FILE="/opt/minecraft/server.properties"
 if [ ! -f "$LOCAL_CFG_FILE" ]; then
 	# Run Minecraft once to extract everything
 	start minecraft
-	sleep 60
+	# I'm sorry, this is the best i could do.
+	tail -f /opt/minecraft/server.log | grep -m 1 "Done" | xargs echo "" >> /opt/minecraft/server.log ;
 	stop minecraft
 fi
 
