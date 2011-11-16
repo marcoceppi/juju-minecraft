@@ -1,10 +1,6 @@
 "Minecraft" is a trademark of Mojang AB. Minecraft and Minecraft server are 
 Copyright Mojang AB.
 
-opt/minecraft is released under Attribution-NonCommercial-ShareAlike 3.0 Unported.
-(CC BY-NC-SA 3.0) http://creativecommons.org/licenses/by-nc-sa/3.0/ made
-available from (http://www.minecraftwiki.net/wiki/Server_startup_script) by Curse 
-
 All other aspects of this charm, including the hooks, opt, and the parent
 directory are available under the GNU General Public License GPLv3 full
 license is available online at http://www.gnu.org/licenses/gpl-3.0.html
