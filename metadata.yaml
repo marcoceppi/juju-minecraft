@@ -2,3 +2,6 @@ name: minecraft
 summary: Minecraft Server
 description: |
   Will deploy OpenJDK 6 JRE and the latest Minecraft server
+provides:
+  server:
+    interface: minecraft
