@@ -6,9 +6,9 @@ LOCAL_CFG_FILE="/opt/minecraft/server.properties"
 
 if [ ! -f "$LOCAL_CFG_FILE" ]; then
 	# Run Minecraft once to extract everything
-	/etc/init.d/minecraft start
+	start minecraft
 	sleep 60
-	/etc/init.d/minecraft stop
+	stop minecraft
 fi
 
 LEVEL=`config-get level-name`
@@ -56,5 +56,5 @@ fi
 /etc/init.d/minecraft status
 IS_RUNNING=$?
 if [ "$IS_RUNNING" -eq 100 ]; then
-	/etc/init.d/minecraft restart
+	restart minecraft
 fi

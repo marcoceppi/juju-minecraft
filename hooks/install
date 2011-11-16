@@ -6,7 +6,7 @@ juju-log "Installing OpenJDK"
 apt-get install -y openjdk-6-jre
 
 juju-log "Add Minecraft init script" 
-cp opt/minecraft /etc/init.d/minecraft && chmod 0755 /etc/init.d/minecraft
+cp opt/minecraft /etc/init/minecraft.conf
 
 juju-log "Downloading Minecraft"
 mkdir -p /opt/minecraft/
@@ -20,9 +20,4 @@ if [ "$?" -ne 0 ]; then
 	juju-log "Checksum conditions failed! Exiting"
 	exit 2 #Checksum error number, I just made it up for this.
 fi
-
-juju-log "Setting up initial Minecraft directory structure"
-/etc/init.d/minecraft start
-sleep 60
-/etc/init.d/minecraft stop
 
